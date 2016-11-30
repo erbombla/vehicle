@@ -24,11 +24,11 @@ class Vehicle
   end
 
   def save
-    @@vehciles.push(self)
+    @@vehicles.push(self)
   end
 
-  define_singleton_method(:clear) do 
-    @@vehciles = []
+  define_singleton_method(:clear) do
+    @@vehicles = []
   end
 
   def age
@@ -38,8 +38,6 @@ class Vehicle
 
   def worth_buying?
     japanese_cars = ['Datsun', 'Mazda', 'Toyota', 'Mitsubishi', 'Honda']
-    japanese = japanese_cars.include?(@make)
-    new_enough = age().<=(50)
-    japanese and new_enough
+    japanese = japanese_cars.include?(@make).&(self.age().<=(50))
   end
 end

@@ -9,21 +9,21 @@ describe('Vehicle') do
   describe('#make') do
     it('returns vehicle make') do
       test_vehicle = Vehicle.new('Datsun', '240z', 1972)
-      expect(test_vehicle.age()).to(eq('Datsun'))
+      expect(test_vehicle.make()).to(eq('Datsun'))
     end
   end
 
   describe('#model') do
     it('returns vehicle model') do
       test_vehicle = Vehicle.new('Datsun', '240z', 1972)
-      expect(test_vehicle.age()).to(eq('240z'))
+      expect(test_vehicle.model()).to(eq('240z'))
     end
   end
 
   describe('#year') do
     it('returns year of vehicle') do
       test_vehicle = Vehicle.new('Datsun', '240z', 1972)
-      expect(test_vehicle.age()).to(eq('1972'))
+      expect(test_vehicle.year()).to(eq(1972))
     end
   end
 
@@ -33,17 +33,19 @@ describe('Vehicle') do
     end
   end
 
-  describe('.save') do
+  describe('#save') do
     it('saves a vehicle to an array') do
       test_vehicle = Vehicle.new('Datsun', '240z', 1972)
-      expect(test_vehicle.age()).to(eq([test_vehicle]))
+      test_vehicle.save()
+      expect(Vehicle.all()).to(eq([test_vehicle]))
     end
   end
 
   describe('.clear') do
     it('clears all saved vehicles') do
-      test_vehicle = Vehicle.new('Datsun', '240z', 1972)
-      expect(test_vehicle.age()).to(eq([]))
+      Vehicle.new('Datsun', '240z', 1972).save()
+      Vehicle.clear()
+      expect(Vehicle.all()).to(eq([]))
     end
   end
 
