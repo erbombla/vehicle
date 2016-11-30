@@ -1,0 +1,9 @@
+<h1> MIYAGI MOTORS </h1>
+<h2><em>Finest sports cars<em></h2>
+
+<h3>List of vehicles on our lot: </h3>
+<ul>
+  <% @vehicles.each() do |vehicle| %>
+   <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.model() %></a></li>
+   <% end %>
+</ul>
