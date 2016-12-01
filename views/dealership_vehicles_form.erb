@@ -1,9 +1,9 @@
-<h2> Add a Vehicle </h2>
+<h2> Add Vehicle to <%= @dealership.name() %> </h2>
 <hr>
 
 <form action="/vehicles" method="post">
   <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'>
-
+  
   <label for="make">Vehicle make:</label>
   <input id="make" name="make" type="text">
 

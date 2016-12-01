@@ -51,11 +51,29 @@ Dealership.find(params.fetch('dealership_id').to_i())
   erb(:success)
 end
 
-# get ('/vehicles') do
-#   @vehicles = Vehicle.all()
-#   erb(:vehicles)
-# end
-#
-# get ('/vehicles/new') do
-#   erb(:vehicles_form)
-# end
+# Lists all vehicles
+get ('/vehicles') do
+  @vehicles = Vehicle.all()
+  erb(:vehicles)
+end
+
+# Form for new vehicles
+get ('/vehicles/new') do
+  erb(:vehicles_form)
+end
+
+# Saves inputted information
+post('/vehicles') do
+  make = params.fetch("make")
+  model = params.fetch("model")
+  year = params.fetch("year")
+  vehicle = Vehicle.new(make, model, year)
+  vehicle.save()
+  erb(:success)
+end
+
+# Displays specific vehicle page
+get('/vehicles/:id') do
+  @vehicle = Vehicle.find(params.fetch("id"))
+  erb(:vehicle)
+end
