@@ -7,6 +7,10 @@ class Dealership
     @cars = []
   end
 
+  def add_vehicle (vehicle)
+    @cars.push(vehicle)
+  end 
+
   def name
     @name
   end
