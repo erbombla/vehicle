@@ -1,17 +1,33 @@
 <h2> Add Vehicle to <%= @dealership.name() %> </h2>
 <hr>
 
-<form action="/vehicles" method="post">
+<form action="/vehicles" method="post" class="form-horizontal">
   <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'>
-  
-  <label for="make">Vehicle make:</label>
-  <input id="make" name="make" type="text">
 
-  <label for="model">Vehicle model:</label>
-  <input id="model" name="model" type="text">
+  <div class = "form-group">
+    <label for="make" class="col-sm-2 control-label">Vehicle make:</label>
+    <div class="col-sm-10">
+      <input id="make" name="make" type="text" class="form-control" placeholder="Vehicle make">
+    </div>
+  </div>
 
-  <label for="year">Vehicle year:</label>
-  <input id="year" name="year" type="text">
+  <div class="form-group">
+    <label for="model" class="col-sm-2 control-label">Vehicle model:</label>
+    <div class="col-sm-10">
+      <input id="model" name="model" type="text" class="form-control" placeholder="Vehicle model">
+    </div>
+  </div>
 
-  <button type="submit">Add</button>
+  <div class="form-group">
+    <label for="year" class="col-sm-2 control-label">Vehicle year:</label>
+    <div class="col-sm-10">
+      <input id="year" name="year" type="text" class="form-control" placeholder="Vehicle year">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Add</button>
+    </div>
+  </div>
 </form>
